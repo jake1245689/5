@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: trades-backend
+    env: docker
+    plan: free
+    repo: https://github.com/jake1245689/trades-scheduler
+    dockerfilePath: backend/Dockerfile
+    rootDir: backend
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+
+  - type: web
+    name: trades-frontend
+    env: docker
+    plan: free
+    repo: https://github.com/jake1245689/trades-scheduler
+    dockerfilePath: frontend/Dockerfile
+    rootDir: frontend
+    envVars:
+      - key: REACT_APP_SUPABASE_URL
+        sync: false
+      - key: REACT_APP_SUPABASE_KEY
+        sync: false
